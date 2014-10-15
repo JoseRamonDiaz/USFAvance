@@ -6,6 +6,7 @@ import android.graphics.Color;
 
 import com.ultimateStarfighter.Aircraft;
 import com.ultimateStarfighter.Assets;
+import com.ultimateStarfighter.EnemyAircraft;
 import com.ultimateStarfighter.Settings;
 import com.ultimateStarfighter.World;
 
@@ -27,6 +28,10 @@ public class USFGameScreen extends Screen {
     World world;
     int oldScore = 0;
     String score = "0";
+	private boolean firstRun = true;
+	private int spriteCounter = 0;
+	private float tick = 0.03f;
+	private float tickTime = 0;
     
     public USFGameScreen(Game game) {
         super(game);
@@ -37,9 +42,12 @@ public class USFGameScreen extends Screen {
     public void update(float deltaTime) {
         List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
         game.getInput().getKeyEvents();
-        
-        if(state == GameState.Ready)
-            updateReady(touchEvents);
+        if(firstRun ){
+        	state = GameState.Running;
+        	firstRun = false;
+        }        
+        //if(state == GameState.Ready)
+        //  updateReady(touchEvents);
         if(state == GameState.Running)
             updateRunning(touchEvents, deltaTime);
         if(state == GameState.Paused)
@@ -76,7 +84,7 @@ public class USFGameScreen extends Screen {
                 }
             }
         }
-        
+
         world.update(deltaTime);
         if(world.gameOver) {
             if(Settings.soundEnabled)
@@ -133,9 +141,18 @@ public class USFGameScreen extends Screen {
     @Override
     public void present(float deltaTime) {
         Graphics g = game.getGraphics();
+        tickTime  += deltaTime;
         
         g.drawPixmap(Assets.background, 0, 0);
-        drawWorld(world);
+        //Si delta llega hasta 1, regula la velocidad de refresco de sprites
+        /*if(tickTime > tick){
+        	tickTime = tickTime-tick;
+        	System.out.println(tickTime);*/
+        	if(state == GameState.Running){
+        		drawWorld(world);
+        	}
+        //}
+        
         if(state == GameState.Ready) 
             drawReadyUI();
         if(state == GameState.Running)
@@ -151,7 +168,10 @@ public class USFGameScreen extends Screen {
     private void drawWorld(World world) {
         Graphics g = game.getGraphics();
         Pixmap aircraftPixmap = Assets.aircraft;
+        Pixmap eAircraftPixmap = Assets.enemyAircraft;
+        //Probablemente deban ser un vector las 2 lineas siguientes
         Aircraft aircraft = world.aircraft;
+        EnemyAircraft eAircraft = world.enemyAircraft;
         /*Snake snake = world.snake;
         SnakePart head = snake.parts.get(0);
         Stain stain = world.stain;
@@ -188,7 +208,26 @@ public class USFGameScreen extends Screen {
         x = head.x * 32 + 16;
         y = head.y * 32 + 16;*/
         //g.drawPixmap(headPixmap, x - headPixmap.getWidth() / 2, y - headPixmap.getHeight() / 2);
-        g.drawPixmap(aircraftPixmap, aircraft.getX(), aircraft.getY());
+        if(spriteCounter == 0){
+        	g.drawPixmap(aircraftPixmap, aircraft.getX(), aircraft.getY(), 0, 0,64,29);
+        }
+        
+        if(spriteCounter == 1){
+        	g.drawPixmap(aircraftPixmap, aircraft.getX(), aircraft.getY(), 0, 29,64,29);
+        }
+        
+        if(spriteCounter == 2){
+        	g.drawPixmap(aircraftPixmap, aircraft.getX(), aircraft.getY(), 0, 58,64,29);
+        }
+        
+        if(spriteCounter == 3){
+        	g.drawPixmap(aircraftPixmap, aircraft.getX(), aircraft.getY(), 0, 87,64,29);
+        	spriteCounter = 0;
+        }
+        
+        spriteCounter++;
+        
+        g.drawPixmap(eAircraftPixmap, eAircraft.getX(), eAircraft.getY());
     }
 
     private void drawReadyUI() {

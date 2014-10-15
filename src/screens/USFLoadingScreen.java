@@ -19,17 +19,16 @@ public class USFLoadingScreen extends Screen {
         Assets.logo = g.newPixmap("usfLogo.png", PixmapFormat.ARGB4444);
         Assets.mainMenu = g.newPixmap("usfMainMenu.png", PixmapFormat.ARGB4444);
         Assets.buttons = g.newPixmap("usfButtons.png", PixmapFormat.ARGB4444);
+        Assets.enemyAircraft = g.newPixmap("e_f1.png", PixmapFormat.ARGB4444);
+        Assets.pause = g.newPixmap("usfPauseMenu.png", PixmapFormat.ARGB4444);
+        Assets.gameOver = g.newPixmap("usfGameOver.png", PixmapFormat.ARGB4444);
+        Assets.aircraft = g.newPixmap("spriteF1.png",PixmapFormat.ARGB4444);
         //No nos sirve
         Assets.help1 = g.newPixmap("help1.png", PixmapFormat.ARGB4444);
         Assets.help2 = g.newPixmap("help2.png", PixmapFormat.ARGB4444);
         Assets.help3 = g.newPixmap("help3.png", PixmapFormat.ARGB4444);
         Assets.numbers = g.newPixmap("numbers.png", PixmapFormat.ARGB4444);
         Assets.ready = g.newPixmap("ready.png", PixmapFormat.ARGB4444);
-        //Si sirve
-        Assets.pause = g.newPixmap("usfPauseMenu.png", PixmapFormat.ARGB4444);
-        Assets.gameOver = g.newPixmap("usfGameOver.png", PixmapFormat.ARGB4444);
-        Assets.aircraft = g.newPixmap("f1.png",PixmapFormat.ARGB4444);
-        //No nos sirve
         Assets.headUp = g.newPixmap("headup.png", PixmapFormat.ARGB4444);
         Assets.headLeft = g.newPixmap("headleft.png", PixmapFormat.ARGB4444);
         Assets.headDown = g.newPixmap("headdown.png", PixmapFormat.ARGB4444);

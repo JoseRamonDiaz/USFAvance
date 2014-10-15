@@ -19,11 +19,13 @@ public class World {
     float tickTime = 0;
     float tick = TICK_INITIAL;
 	public Aircraft aircraft;
+	public EnemyAircraft enemyAircraft;
 
     public World() {
         //snake = new Snake();
         //placeStain();
-    	aircraft = new Aircraft(100,200);
+    	aircraft = new Aircraft(50,200);
+    	enemyAircraft = new EnemyAircraft(250,200);
     }
 
     /*private void placeStain() {
