@@ -1,4 +1,4 @@
-package ultimateStarfighter;
+package com.ultimateStarfighter;
 
 public class Stain {
     public static final int TYPE_1 = 0;

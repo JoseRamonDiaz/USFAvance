@@ -1,6 +1,10 @@
-package ultimateStarfighter;
+package screens;
 
 import java.util.List;
+
+import com.ultimateStarfighter.Assets;
+import com.ultimateStarfighter.Settings;
+
 
 import framework.Game;
 import framework.Graphics;

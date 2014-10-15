@@ -1,4 +1,4 @@
-package ultimateStarfighter;
+package com.ultimateStarfighter;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -1,4 +1,4 @@
-package ultimateStarfighter;
+package com.ultimateStarfighter;
 
 public class Bonus {
 	static final int WEAPON_UP = 0;

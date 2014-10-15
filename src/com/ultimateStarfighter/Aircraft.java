@@ -1,4 +1,4 @@
-package ultimateStarfighter;
+package com.ultimateStarfighter;
 
 public class Aircraft {
 	int x, y;

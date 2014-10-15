@@ -1,4 +1,4 @@
-package ultimateStarfighter;
+package com.ultimateStarfighter;
 
 import java.util.ArrayList;
 import java.util.List;

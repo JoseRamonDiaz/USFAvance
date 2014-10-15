@@ -1,6 +1,14 @@
-package ultimateStarfighter;
+package screens;
 
 import java.util.List;
+
+import com.ultimateStarfighter.Assets;
+import com.ultimateStarfighter.Settings;
+import com.ultimateStarfighter.Snake;
+import com.ultimateStarfighter.SnakePart;
+import com.ultimateStarfighter.Stain;
+import com.ultimateStarfighter.World;
+
 
 import android.graphics.Color;
 import framework.Game;
@@ -191,7 +199,8 @@ public class USFGameScreen extends Screen {
         Graphics g = game.getGraphics();
 
         g.drawPixmap(Assets.buttons, 0, 0, 64, 128, 64, 64);
-        g.drawLine(0, 416, 480, 416, Color.BLACK);
+        //la linea no parece servir mas
+        //g.drawLine(0, 416, 480, 416, Color.BLACK);
         g.drawPixmap(Assets.buttons, 0, 416, 64, 64, 64, 64);
         g.drawPixmap(Assets.buttons, 256, 416, 0, 64, 64, 64);
     }

@@ -1,8 +1,8 @@
 package screens;
 
-import ultimateStarfighter.Assets;
-import ultimateStarfighter.Settings;
-import ultimateStarfighter.USFMainMenuScreen;
+import com.ultimateStarfighter.Assets;
+import com.ultimateStarfighter.Settings;
+
 import framework.Game;
 import framework.Graphics;
 import framework.Graphics.PixmapFormat;
