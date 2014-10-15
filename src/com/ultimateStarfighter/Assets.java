@@ -24,7 +24,7 @@ public class Assets {
     public static Pixmap stain2;
     public static Pixmap stain3;
     
-    public static Pixmap ship;
+    public static Pixmap aircraft;
     
     public static Sound click;
     public static Sound eat;

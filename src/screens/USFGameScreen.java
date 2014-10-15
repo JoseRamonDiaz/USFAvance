@@ -2,15 +2,13 @@ package screens;
 
 import java.util.List;
 
+import android.graphics.Color;
+
+import com.ultimateStarfighter.Aircraft;
 import com.ultimateStarfighter.Assets;
 import com.ultimateStarfighter.Settings;
-import com.ultimateStarfighter.Snake;
-import com.ultimateStarfighter.SnakePart;
-import com.ultimateStarfighter.Stain;
 import com.ultimateStarfighter.World;
 
-
-import android.graphics.Color;
 import framework.Game;
 import framework.Graphics;
 import framework.Input.TouchEvent;
@@ -68,11 +66,13 @@ public class USFGameScreen extends Screen {
                 }
             }
             if(event.type == TouchEvent.TOUCH_DOWN) {
+            	
                 if(event.x < 64 && event.y > 416) {
-                    world.snake.turnLeft();
+                    //world.snake.turnLeft();
+                	
                 }
                 if(event.x > 256 && event.y > 416) {
-                    world.snake.turnRight();
+                    //world.snake.turnRight();
                 }
             }
         }
@@ -150,7 +150,9 @@ public class USFGameScreen extends Screen {
 
     private void drawWorld(World world) {
         Graphics g = game.getGraphics();
-        Snake snake = world.snake;
+        Pixmap aircraftPixmap = Assets.aircraft;
+        Aircraft aircraft = world.aircraft;
+        /*Snake snake = world.snake;
         SnakePart head = snake.parts.get(0);
         Stain stain = world.stain;
         
@@ -184,8 +186,9 @@ public class USFGameScreen extends Screen {
         if(snake.direction == Snake.RIGHT) 
             headPixmap = Assets.headRight;        
         x = head.x * 32 + 16;
-        y = head.y * 32 + 16;
-        g.drawPixmap(headPixmap, x - headPixmap.getWidth() / 2, y - headPixmap.getHeight() / 2);
+        y = head.y * 32 + 16;*/
+        //g.drawPixmap(headPixmap, x - headPixmap.getWidth() / 2, y - headPixmap.getHeight() / 2);
+        g.drawPixmap(aircraftPixmap, aircraft.getX(), aircraft.getY());
     }
 
     private void drawReadyUI() {
@@ -237,7 +240,7 @@ public class USFGameScreen extends Screen {
                 srcWidth = 10;
             } else {
                 srcX = (character - '0') * 20;
-                srcWidth = 20;
+                srcWidth = 27;
             }
 
             g.drawPixmap(Assets.numbers, x, y, srcX, 0, srcWidth, 32);

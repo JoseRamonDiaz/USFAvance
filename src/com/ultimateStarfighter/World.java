@@ -9,22 +9,24 @@ public class World {
     static final float TICK_INITIAL = 0.5f;
     static final float TICK_DECREMENT = 0.05f;
 
-    public Snake snake;
-    public Stain stain;
+    //public Snake snake;
+    //public Stain stain;
     public boolean gameOver = false;;
     public int score = 0;
 
-    boolean fields[][] = new boolean[WORLD_WIDTH][WORLD_HEIGHT];
+    //boolean fields[][] = new boolean[WORLD_WIDTH][WORLD_HEIGHT];
     Random random = new Random();
     float tickTime = 0;
     float tick = TICK_INITIAL;
+	public Aircraft aircraft;
 
     public World() {
-        snake = new Snake();
-        placeStain();
+        //snake = new Snake();
+        //placeStain();
+    	aircraft = new Aircraft(100,200);
     }
 
-    private void placeStain() {
+    /*private void placeStain() {
         for (int x = 0; x < WORLD_WIDTH; x++) {
             for (int y = 0; y < WORLD_HEIGHT; y++) {
                 fields[x][y] = false;
@@ -52,7 +54,7 @@ public class World {
             }
         }
         stain = new Stain(stainX, stainY, random.nextInt(3));
-    }
+    }*/
 
     public void update(float deltaTime) {
         if (gameOver)
@@ -62,6 +64,7 @@ public class World {
 
         while (tickTime > tick) {
             tickTime -= tick;
+            /*
             snake.advance();
             if (snake.checkBitten()) {
                 gameOver = true;
@@ -77,7 +80,7 @@ public class World {
                     return;
                 } else {
                     placeStain();
-                }
+                }*/
 
                 if (score % 100 == 0 && tick - TICK_DECREMENT > 0) {
                     tick -= TICK_DECREMENT;
@@ -85,4 +88,4 @@ public class World {
             }
         }
     }
-}
+

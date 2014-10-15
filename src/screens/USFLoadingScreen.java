@@ -28,6 +28,7 @@ public class USFLoadingScreen extends Screen {
         //Si sirve
         Assets.pause = g.newPixmap("usfPauseMenu.png", PixmapFormat.ARGB4444);
         Assets.gameOver = g.newPixmap("usfGameOver.png", PixmapFormat.ARGB4444);
+        Assets.aircraft = g.newPixmap("f1.png",PixmapFormat.ARGB4444);
         //No nos sirve
         Assets.headUp = g.newPixmap("headup.png", PixmapFormat.ARGB4444);
         Assets.headLeft = g.newPixmap("headleft.png", PixmapFormat.ARGB4444);
